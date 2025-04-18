@@ -8,7 +8,6 @@ load_dotenv()  # Load environment variables from .env file
 
 url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
-port = int(os.environ.get("PORT", 5000))
 
 if not url or not key:
     raise ValueError("SUPABASE_URL and SUPABASE_KEY environment variables are required")
@@ -47,4 +46,4 @@ def log():
         return flask.jsonify({"status": "error", "message": "Invalid data format"}), 400
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=port, debug=False)
+    app.run(host='0.0.0.0', port=5000, debug=False)
